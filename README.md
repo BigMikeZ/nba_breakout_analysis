@@ -1,9 +1,21 @@
 # Is it just a Mirage: Identify Legit Breakout Candidates and Imposters in the Age of Tanking in the NBA
 ## Author: Mike Zhang ##
 
-## Project Overview
-Since time immemorial, tanking has been an issue in the NBA. Over the past few years, with loads of generational talents like Victor Wembanyama and Cooper Flagg entering the league every year, the tanking measurements adopted by teams have become, well, more and more blatant, whether they are teams that were in the middle of a dog fight in the finals yet somehow predicted their best player was about to tear his achilles a few days later like the Pacers, accumulate assets for the future like the Nets, cross fingers for a miracle after trading away their franchise like the Mavs, or simply be the Sacramento Kings who started Kilian Hayes for the last game.
+## Project Overview & Question
+Everybody who follows the NBA even remotely knows that the league has had a tanking problem, and despite the league's attempts to implement anti-tanking measures, such as the bottom-three teams sharing the same lottery odds, tanking is only becoming more egregious year by year. However, this does provide those bad teams that have already lost playoff hope long before the season even started an opportunity to test their young cores, from which might emerge the next stars, and this raises a natural question: are post-All-Star breakouts on tanking teams real, or just noise? To answer that question, I operationalized player performance on PIE, a boxscore-based advanced metric, to see whether players in tanking teams sustained their post-All-Star performance in the following season, using data from the past 10 seasons.
 
-It's bad for the game, I get it. But at the same time, it allows teams to experiment with their lineups and develop players who otherwise might not get enough playing time to show what they can actually do on the court. Take the now all-star Deni Avdija as an example. After spending four underwhelming years in D.C., he was traded to the Blazers for cheap, and during his first season with the Blazers, he still merely looked like a high-caliber role player at best, averaging a serviceable 14/6/3 with mediocre efficiency, just slightly better than what he did with the Wizards. However, he suddenly emerged as a breakout candidate since the All-Star break, stuffing the statsheet with a stunning 23/9/5 line with an impressive 50%/40%/78% split. Avdija finished the 24-25 season strong, but rumors of him starting the 25-26 season off the bench were circulating in the off-season, showing just how fans and analysts are treating stats from the so-called Mickey-mouse March with caution nowadays.
-
-This raises a natural question: are post-All-Star breakouts on tanking teams real, or just noise?
+## Key Findings
+* Breakout players who "leaped" after all-star breaks on tanking teams tend to regress the following season
+* The higher these players leaped, the harder they would land
+* Young breakout players tend to sustain their improvement better than older players
+* Position did not significantly predict regression magnitude, though centers tended to post higher absolute PIE levels the following season than guards or forwards
+  
+## Data
+Breakout seasons span 2014-15 to 2023-24, with following-season outcomes drawn through 2024-25. The 2019-20 season is excluded due to COVID-19. All data are obtained from the official `nba_api` endpoints. To capture the "big leap in a tanking team post all-star break" scenario as accurately as possible, multiple inclusion criteria are implemented. To qualify, a player must:
+* Be no older than 28
+* Be on a tanking team (bottom 12 by pre-All-Star win rate)
+* be at least a rotation-level player before all-star breaks
+* Demonstrated breakout after all-star breaks (PIE increase or significant minutes jump)
+* No established stars (prior season PIE cap at 0.11)
+* Sufficient following season sample (GP >= 30)
+Ultimately, the inclusion criteria left me with exactly 100 players for my analysis.
