@@ -9,7 +9,7 @@ Everybody who follows the NBA even remotely knows that the league has had a tank
 * The higher these players leaped, the harder they would land
 * Young breakout players tend to sustain their improvement better than older players
 * Position did not significantly predict regression magnitude, though centers tended to post higher absolute PIE levels the following season than guards or forwards
-  
+
 ## Data
 Breakout seasons span 2014-15 to 2023-24, with following-season outcomes drawn through 2024-25. The 2019-20 season is excluded due to COVID-19. All data are obtained from the official `nba_api` endpoints. To capture the "big leap in a tanking team post all-star break" scenario as accurately as possible, multiple inclusion criteria are implemented. To qualify, a player must:
 * Be no older than 28
