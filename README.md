@@ -1,4 +1,4 @@
-# Is it just a Mirage: Identify Legit Breakout Candidates and Imposters in the Age of Tanking in the NBA
+# Is it just a Mirage: Can Breakout Players in the NBA Sustain their Surge in the Age of Tanking
 ## Author: Mike Zhang ##
 
 ## Project Overview & Question
@@ -10,6 +10,9 @@ Everybody who follows the NBA even remotely knows that the league has had a tank
 * Young breakout players tend to sustain their improvement better than older players
 * Position did not significantly predict regression magnitude, though centers tended to post higher absolute PIE levels the following season than guards or forwards
 
+![Scatter plot of Pre- and Post-All-Star PIE Change and Following Season PIE Difference](plots/outlier_scatter.png)
+*Figure 1. Scatter plot of Pre- and Post-All-Star PIE Change and Following Season PIE Difference*
+
 ## Data
 Breakout seasons span 2014-15 to 2023-24, with following-season outcomes drawn through 2024-25. The 2019-20 season is excluded due to COVID-19. All data are obtained from the official `nba_api` endpoints. To capture the "big leap in a tanking team post all-star break" scenario as accurately as possible, multiple inclusion criteria are implemented. To qualify, a player must:
 * Be no older than 28
@@ -19,3 +22,6 @@ Breakout seasons span 2014-15 to 2023-24, with following-season outcomes drawn t
 * No established stars (prior season PIE cap at 0.11)
 * Sufficient following season sample (GP >= 30)
 Ultimately, the inclusion criteria left me with exactly 100 players for my analysis.
+
+## Methodology
+Multiple linear regression and logistic regression are utilized, with players' age after all-star breaks (AGE_POST), pre- and post- all-star breaks PIE change (PIE_change), and players' position (G/F/C) as predictors. Linear regression is run on both the primary outcome, the difference between post-all-star break PIE and the following season's PIE (PIE_diff), and the secondary outcome, absolute PIE in the following season (PIE_following). More predictors were included in the model originally, but severe multicollinearity was present among certain variables whose VIFs exceeded 5. These variables were eventually dropped. For the logistic regression, PIE_diff is transformed into a binary outcome to indicate whether a player sustains their post-all-star surge or not. Influential observations are identified using Cook's Distance with a threshold of 4/n. Identified players are annotated on the scatter plot above.
