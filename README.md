@@ -29,19 +29,10 @@ Multiple linear regression and logistic regression are utilized, with players' a
 ## Repository Structure
 ```
 nba_breakout_analysis/
-├── data/
-│   └── all_candidates.csv
-├── models/
-│   ├── diff_model.pkl
-│   ├── following_model.pkl
-│   └── logit_model.pkl
-├── plots/
-|   ├── age_binned_regression.png
-│   ├── diff_model_diagnostics.png
-│   ├── following_model_diagnostics.png
-│   ├── outlier_scatter.png
-│   └── position_boxplot.png
-├── scripts/
+├── data/                         # Processed player-season data
+├── models/                       # Picked regressio models
+├── plots/                        # All visualizations
+├── scripts/                      # Jupyter notebooks
 │   ├── 01_data_collection_n_feature_engineering.ipynb
 │   ├── 02_modeling.ipynb
 ├── .gitignore
