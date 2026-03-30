@@ -21,3 +21,6 @@ Breakout seasons span 2014-15 to 2023-24, with following-season outcomes drawn t
 * No established stars (prior season PIE cap at 0.11)
 * Sufficient following season sample (GP >= 30)
 Ultimately, the inclusion criteria left me with exactly 100 players for my analysis.
+
+## Methodology
+Multiple linear regression and logistic regression are utilized, with players' age after all-star breaks, change in PIE pre- and post- all-star breaks, and players' position as predictors. Linear regression is run on both the primary outcome, the difference between post-all-star break PIE and the following season's PIE, and the secondary outcome, absolute PIE in the following season. More predictors were included in the model originally, but severe multicollinearity was present among certain variables whose VIFs exceeded 5. These variables were eventually dropped. For the logistic regression, the difference between post-all-star break PIE and the following season's PIE is transformed into a binary outcome to indicate whether a player sustains their post-all-star surge or not. 
