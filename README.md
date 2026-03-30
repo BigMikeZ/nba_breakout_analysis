@@ -1,5 +1,5 @@
 # Is it just a Mirage: Can Breakout Players in the NBA Sustain their Surge in the Age of Tanking
-## Author: Mike Zhang ##
+**Author:** Mike Zhang — [GitHub](https://github.com/BigMikeZ) 
 
 ## Project Overview & Question
 Everybody who follows the NBA even remotely knows that the league has had a tanking problem, and despite the league's attempts to implement anti-tanking measures, such as the bottom-three teams sharing the same lottery odds, tanking is only becoming more egregious year by year. However, this does provide those bad teams that have already lost playoff hope long before the season even started an opportunity to test their young cores, from which might emerge the next stars, and this raises a natural question: are post-All-Star breakouts on tanking teams real, or just noise? To answer that question, I operationalized player performance on PIE, a boxscore-based advanced metric, to see whether players in tanking teams sustained their post-All-Star performance in the following season, using data from the past 10 seasons.
@@ -25,3 +25,35 @@ Ultimately, the inclusion criteria left me with exactly 100 players for my analy
 
 ## Methodology
 Multiple linear regression and logistic regression are utilized, with players' age after all-star breaks (AGE_POST), pre- and post- all-star breaks PIE change (PIE_change), and players' position (G/F/C) as predictors. Linear regression is run on both the primary outcome, the difference between post-all-star break PIE and the following season's PIE (PIE_diff), and the secondary outcome, absolute PIE in the following season (PIE_following). More predictors were included in the model originally, but severe multicollinearity was present among certain variables whose VIFs exceeded 5. These variables were eventually dropped. For the logistic regression, PIE_diff is transformed into a binary outcome to indicate whether a player sustains their post-all-star surge or not. Influential observations are identified using Cook's Distance with a threshold of 4/n. Identified players are annotated on the scatter plot above.
+
+## Repository Structure
+```
+nba_breakout_analysis/
+├── data/                         # Processed player-season data
+├── models/                       # Picked regressio models
+├── plots/                        # All visualizations
+├── scripts/                      # Jupyter notebooks
+│   ├── 01_data_collection_n_feature_engineering.ipynb
+│   ├── 02_modeling.ipynb
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## How to Run
+
+1. Clone the repository and navigate to the project folder:
+   git clone https://github.com/BigMikeZ/nba_breakout_analysis.git
+   cd nba_breakout_analysis
+
+2. It is recommended to create a virtual environment before installing dependencies:
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Run notebooks in order:
+   - `scripts/01_data_collection_n_feature_engineering.ipynb` — pulls data from the NBA API and engineers features. Note that API calls are rate-limited; expect this notebook to take several minutes to run.
+   - `scripts/02_modeling.ipynb` — loads processed data, fits models, and generates plots.
+
