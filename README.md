@@ -1,5 +1,5 @@
 # Is it just a Mirage: Can Breakout Players in the NBA Sustain their Surge in the Age of Tanking
-**Author:** Mike Zhang — [GitHub](https://github.com/BigMikeZ) ##
+**Author:** Mike Zhang — [GitHub](https://github.com/BigMikeZ) 
 
 ## Project Overview & Question
 Everybody who follows the NBA even remotely knows that the league has had a tanking problem, and despite the league's attempts to implement anti-tanking measures, such as the bottom-three teams sharing the same lottery odds, tanking is only becoming more egregious year by year. However, this does provide those bad teams that have already lost playoff hope long before the season even started an opportunity to test their young cores, from which might emerge the next stars, and this raises a natural question: are post-All-Star breakouts on tanking teams real, or just noise? To answer that question, I operationalized player performance on PIE, a boxscore-based advanced metric, to see whether players in tanking teams sustained their post-All-Star performance in the following season, using data from the past 10 seasons.
