@@ -25,3 +25,44 @@ Ultimately, the inclusion criteria left me with exactly 100 players for my analy
 
 ## Methodology
 Multiple linear regression and logistic regression are utilized, with players' age after all-star breaks (AGE_POST), pre- and post- all-star breaks PIE change (PIE_change), and players' position (G/F/C) as predictors. Linear regression is run on both the primary outcome, the difference between post-all-star break PIE and the following season's PIE (PIE_diff), and the secondary outcome, absolute PIE in the following season (PIE_following). More predictors were included in the model originally, but severe multicollinearity was present among certain variables whose VIFs exceeded 5. These variables were eventually dropped. For the logistic regression, PIE_diff is transformed into a binary outcome to indicate whether a player sustains their post-all-star surge or not. Influential observations are identified using Cook's Distance with a threshold of 4/n. Identified players are annotated on the scatter plot above.
+
+## Repository Structure
+```
+nba_breakout_analysis/
+├── data/
+│   └── all_candidates.csv
+├── models/
+│   ├── diff_model.pkl
+│   ├── following_model.pkl
+│   └── logit_model.pkl
+├── plots/
+|   ├── age_binned_regression.png
+│   ├── diff_model_diagnostics.png
+│   ├── following_model_diagnostics.png
+│   ├── outlier_scatter.png
+│   └── position_boxplot.png
+├── scripts/
+│   ├── 01_data_collection_n_feature_engineering.ipynb
+│   ├── 02_modeling.ipynb
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## How to Run
+
+1. Clone the repository and navigate to the project folder:
+   git clone https://github.com/BigMikeZ/nba_breakout_analysis.git
+   cd nba_breakout_analysis
+
+2. It is recommended to create a virtual environment before installing dependencies:
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Run notebooks in order:
+   - `scripts/01_data_collection_n_feature_engineering.ipynb` — pulls data from the NBA API and engineers features. Note that API calls are rate-limited; expect this notebook to take several minutes to run.
+   - `scripts/02_modeling.ipynb` — loads processed data, fits models, and generates plots.
+
