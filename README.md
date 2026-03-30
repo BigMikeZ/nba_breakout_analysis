@@ -1,4 +1,4 @@
-# Is it just a Mirage: Identify Legit Breakout Candidates and Imposters in the Age of Tanking in the NBA
+# Is it just a Mirage: Can Breakout Players in the NBA Sustain their Surge in the Age of Tanking
 ## Author: Mike Zhang ##
 
 ## Project Overview & Question
