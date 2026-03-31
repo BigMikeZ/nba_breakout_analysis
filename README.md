@@ -1,4 +1,4 @@
-# Is it just a Mirage: Can Breakout Players in the NBA Sustain their Surge in the Age of Tanking
+# NBA Breakout Sustainability Analysis
 **Author:** Mike Zhang — [GitHub](https://github.com/BigMikeZ) 
 
 ## Project Overview & Question
@@ -15,12 +15,12 @@ Everybody who follows the NBA even remotely knows that the league has had a tank
 
 ## Data
 Breakout seasons span 2014-15 to 2023-24, with following-season outcomes drawn through 2024-25. The 2019-20 season is excluded due to COVID-19. All data are obtained from the official `nba_api` endpoints. To capture the "big leap in a tanking team post all-star break" scenario as accurately as possible, multiple inclusion criteria are implemented. To qualify, a player must:
-* Be no older than 28
-* Be on a tanking team (bottom 12 by pre-All-Star win rate)
+* be no older than 28
+* be on a tanking team (bottom 12 by pre-All-Star win rate)
 * be at least a rotation-level player before all-star breaks
-* Demonstrated breakout after all-star breaks (PIE increase or significant minutes jump)
-* No established stars (prior season PIE cap at 0.11)
-* Sufficient following season sample (GP >= 30)
+* have demonstrated a breakout after all-star breaks (PIE increase or significant minutes jump)
+* not be established stars (prior season PIE cap at 0.11)
+* have sufficient following season sample (GP >= 30)
 Ultimately, the inclusion criteria left me with exactly 100 players for my analysis.
 
 ## Methodology
